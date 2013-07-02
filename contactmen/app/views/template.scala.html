@@ -1,0 +1,29 @@
+@(title: String,home: Boolean=true, scripts: Html = Html(""))(content: Html)
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>@title</title>
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap.min.css")">
+        <link rel="stylesheet" href="@routes.Assets.at("stylesheets/bootstrap-responsive.min.css")">
+        <script src="@routes.Assets.at("javascripts/jquery-2.0.2.min.js")" type="text/javascript"></script>
+        <script src="@routes.Assets.at("javascripts/bootstrap.min.js")" type="text/javascript"></script>
+        @scripts
+    </head>
+    <body>
+        <div class="navbar navbar-inverse row-fluid">
+            <div class="navbar-inner">
+                <ul class="nav offset2">
+                    <li class="@if(home){active}"><a href="#">Home</a></li>
+                    <li><a href="#">Document</a></li>
+                    <li><a href="#">Picture</a></li>
+                </ul>
+                <a href="#" class="brand">Connect me</a>
+            </div>
+        </div>
+        <div class="row-fluid">
+            @content
+        </div>
+    </body>
+</html>
